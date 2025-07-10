@@ -1,5 +1,6 @@
 package org.oab.catracaoab.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -25,6 +26,7 @@ public class Evento {
     private String slug;
 
     @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Participante> participantes;
 
 }

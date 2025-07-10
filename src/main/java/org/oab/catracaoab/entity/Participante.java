@@ -1,6 +1,7 @@
 package org.oab.catracaoab.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +22,6 @@ public abstract class Participante {
 
     private String nomeCompleto;
 
-    @Column(unique=true)
     private String cpf;
 
     @Lob
@@ -30,6 +30,7 @@ public abstract class Participante {
 
     @ManyToOne
     @JoinColumn(name = "evento_id")
+    @JsonBackReference
     private Evento evento;
 
 

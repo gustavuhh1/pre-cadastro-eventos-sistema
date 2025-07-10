@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface AdvogadoRepository extends JpaRepository<Advogado, UUID> {
-    Optional<Advogado> findByNumeroOab(String numeroOab);
+    Optional<Advogado> findByNumeroOAB(String numeroOAB);
 }
