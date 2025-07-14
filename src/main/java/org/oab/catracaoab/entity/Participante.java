@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.oab.catracaoab.entity.dto.StatusCadastro;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -32,6 +33,10 @@ public abstract class Participante {
     @JoinColumn(name = "evento_id")
     @JsonBackReference
     private Evento evento;
+
+    @Column(name = "status_cadastro")
+    @Enumerated(EnumType.STRING)
+    private StatusCadastro statusCadastro;
 
 
     // Opcionais por enquanto

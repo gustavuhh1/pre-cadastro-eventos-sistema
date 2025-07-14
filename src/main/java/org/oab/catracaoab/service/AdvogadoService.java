@@ -5,6 +5,7 @@ import org.oab.catracaoab.entity.Advogado;
 import org.oab.catracaoab.entity.Evento;
 import org.oab.catracaoab.entity.dto.CadastroAdvogadoRequestDTO;
 import org.oab.catracaoab.entity.dto.CadastroAdvogadoResponseDTO;
+import org.oab.catracaoab.entity.dto.StatusCadastro;
 import org.oab.catracaoab.exception.RecursoNaoEncontradoException;
 import org.oab.catracaoab.repository.AdvogadoRepository;
 import org.oab.catracaoab.repository.EventoRepository;
@@ -29,6 +30,7 @@ public class AdvogadoService {
         advogado.setDataNascimento(dto.getDataNascimento());
         advogado.setTelefone(dto.getTelefone());
         advogado.setEmail(dto.getEmail());
+        advogado.setStatusCadastro(StatusCadastro.PENDENTE);
         advogado.setEvento(evento);
 
         Advogado salvo = advogadoRepository.save(advogado);
@@ -39,6 +41,7 @@ public class AdvogadoService {
         response.setNumeroOAB(salvo.getNumeroOAB());
         response.setCpf(salvo.getCpf());
         response.setEmail(salvo.getEmail());
+        response.setStatusCadastro(salvo.getStatusCadastro());
         response.setEventoTitulo(evento.getTitulo());
 
         return response;

@@ -9,6 +9,8 @@ public class CadastroAdvogadoResponseDTO {
     private UUID id;
     private String nomeCompleto;
     private String cpf;
+    private String imgFacialBase64;
+    private StatusCadastro statusCadastro;
     private String email;
     private String numeroOAB;
     private String eventoTitulo;

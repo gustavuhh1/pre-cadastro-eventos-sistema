@@ -5,6 +5,7 @@ import org.oab.catracaoab.entity.Evento;
 import org.oab.catracaoab.entity.Visitante;
 import org.oab.catracaoab.entity.dto.CadastroVisitanteRequestDTO;
 import org.oab.catracaoab.entity.dto.CadastroVisitanteResponseDTO;
+import org.oab.catracaoab.entity.dto.StatusCadastro;
 import org.oab.catracaoab.exception.RecursoNaoEncontradoException;
 import org.oab.catracaoab.repository.EventoRepository;
 import org.oab.catracaoab.repository.VisitanteRepository;
@@ -30,6 +31,7 @@ public class VisitanteService {
         visitante.setTelefone(dto.getTelefone());
         visitante.setEmail(dto.getEmail());
         visitante.setEvento(evento);
+        visitante.setStatusCadastro(StatusCadastro.PENDENTE);
 
         Visitante salvo = visitanteRepository.save(visitante);
 
@@ -37,9 +39,11 @@ public class VisitanteService {
         CadastroVisitanteResponseDTO response = new CadastroVisitanteResponseDTO();
         response.setId(salvo.getId());
         response.setNomeCompleto(salvo.getNomeCompleto());
+        response.setImgFacialBase64(salvo.getImgFacialBase64());
         response.setCpf(salvo.getCpf());
         response.setEmail(salvo.getEmail());
         response.setTelefone(salvo.getTelefone());
+        response.setStatusCadastro(salvo.getStatusCadastro());
         response.setEventoTitulo(evento.getTitulo());
 
         return response;
