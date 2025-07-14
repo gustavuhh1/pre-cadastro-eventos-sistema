@@ -39,7 +39,8 @@ public class SecurityConfig {
                                 "/api/cadastro/**",
                                 "/api/eventos/**",
                                 "/h2-console/**",
-                                "/login"
+                                "/login",
+                                "/dashboard/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

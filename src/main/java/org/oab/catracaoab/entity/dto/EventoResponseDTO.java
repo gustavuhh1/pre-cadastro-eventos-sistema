@@ -13,5 +13,6 @@ public class EventoResponseDTO {
     private String descricao;
     private LocalDateTime dataHoraEvento;
     private String slug;
+    private LocalDateTime createAt;
 
 }

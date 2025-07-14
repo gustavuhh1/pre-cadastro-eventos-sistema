@@ -29,6 +29,7 @@ public class EventoController {
         response.setDescricao(criado.getDescricao());
         response.setDataHoraEvento(criado.getDataHoraEvento());
         response.setSlug(criado.getSlug());
+        response.setCreateAt(criado.getCreateAt());
 
         return ResponseEntity.ok(response);
     }
